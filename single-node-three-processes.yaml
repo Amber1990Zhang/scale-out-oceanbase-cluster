@@ -1,5 +1,5 @@
-## Only need to configure when remote login is required
-user:
+#Only need to configure when remote login is required
+#user:
   #  username: admin
 #   password: your password if need
    # key_file: /home/admin/.ssh/id_rsa.pub
@@ -7,13 +7,13 @@ user:
 #   timeout: ssh connection timeout (second), default 30
 oceanbase-ce:
   servers:
-    - name: observer01 
+    - name: observer01
       # Please don't use hostname, only IP can be supported
-      ip: 11.161.24.110
+      ip: 11.124.9.176
     - name: observer02
-      ip: 11.161.24.110
+      ip: 11.124.9.176
     - name: observer03
-      ip: 11.161.24.110
+      ip: 11.124.9.176
   global:
     # Please set devname as the network adaptor's name whose ip is  in the setting of severs.
     # if set severs as "127.0.0.1", please set devname as "lo"
@@ -50,36 +50,36 @@ oceanbase-ce:
     mysql_port: 2881 # External port for OceanBase Database. The default value is 2881.
     rpc_port: 2882 # Internal port for OceanBase Database. The default value is 2882.
     #  The working directory for OceanBase Database. OceanBase Database is started under this directory. This is a required field.
-    home_path: /home/admin/observer01
+    home_path: /home/haiqian.zy/oceanbase/observer01
     # The directory for data storage. The default value is $home_path/store.
-    data_dir: /data/1
+   # data_dir: /data/1
     # The directory for clog, ilog, and slog. The default value is the same as the data_dir value.
-    redo_dir: /redo/1
+    #redo_dir: /redo/1
     zone: zone1
   observer02:
     mysql_port: 3881 # External port for OceanBase Database. The default value is 2881.
     rpc_port: 3882 # Internal port for OceanBase Database. The default value is 2882.
     #  The working directory for OceanBase Database. OceanBase Database is started under this directory. This is a required field.
-    home_path: /home/admin/observer02
+    home_path: /home/haiqian.zy/oceanbase/observer02
     # The directory for data storage. The default value is $home_path/store.
-    data_dir: /data/2
+    #data_dir: /data/2
     # The directory for clog, ilog, and slog. The default value is the same as the data_dir value.
-    redo_dir: /redo/2
+    #redo_dir: /redo/2
     zone: zone2
   observer03:
     mysql_port: 4881 # External port for OceanBase Database. The default value is 2881.
     rpc_port: 4882 # Internal port for OceanBase Database. The default value is 2882.
     #  The working directory for OceanBase Database. OceanBase Database is started under this directory. This is a required field.
-    home_path: /home/admin/observer03
+    home_path: /home/haiqian.zy/oceanbase/observer03
     # The directory for data storage. The default value is $home_path/store.
-    data_dir: /data/3
+    #data_dir: /data/3
     # The directory for clog, ilog, and slog. The default value is the same as the data_dir value.
-    redo_dir: /redo/3
+    #redo_dir: /redo/3
     zone: zone3
 
 obproxy:
   servers:
-    - 11.161.24.110
+    - 11.124.9.176
   # Set dependent components for the component.
   # When the associated configurations are not done, OBD will automatically get the these configurations from the dependent components.
   depends:
@@ -87,10 +87,10 @@ obproxy:
   global:
     listen_port: 2883 # External port. The default value is 2883.
     prometheus_listen_port: 2884 # The Prometheus port. The default value is 2884.
-    home_path: /home/admin/obproxy
+    home_path: /home/haiqian.zy/oceanbase/obproxy
     # oceanbase root server list
     # format: ip:mysql_port;ip:mysql_port
-    rs_list: 11.161.24.110:2881,11.161.24.110:3881,11.161.24.110:4881
+    rs_list: 11.124.9.176:2881,11.124.9.176:3881,11.124.9.176:4881
     enable_cluster_checkout: false
     # observer cluster name, consistent with oceanbase-ce's appname
     cluster_name: obcluster
